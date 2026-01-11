@@ -1,5 +1,9 @@
 <script lang="ts">
     import { Tabs } from "@skeletonlabs/skeleton-svelte";
+	import Notes from "./tabs/Notes.svelte";
+
+	export let report;
+	export let eolList;
 </script>
 
 <div class="tabbed-info">
@@ -14,7 +18,7 @@
         </Tabs.List>
 
         <Tabs.Content value="notes">
-            
+            <Notes report={report} eolList={eolList}/>
         </Tabs.Content>
         
         <Tabs.Content value="notable-software">
