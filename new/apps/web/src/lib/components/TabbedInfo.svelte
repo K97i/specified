@@ -7,7 +7,7 @@
 </script>
 
 <div class="tabbed-info">
-    <Tabs>
+    <Tabs defaultValue="notes">
         <Tabs.List>
             <Tabs.Trigger value="notes"></Tabs.Trigger>
             <Tabs.Trigger value="notable-software"></Tabs.Trigger>
@@ -15,6 +15,7 @@
             <Tabs.Trigger value="browsers"></Tabs.Trigger>
             <Tabs.Trigger value="startup-tasks"></Tabs.Trigger>
             <Tabs.Trigger value="windows-updates"></Tabs.Trigger>
+            <Tabs.Indicator />
         </Tabs.List>
 
         <Tabs.Content value="notes">
@@ -22,23 +23,23 @@
         </Tabs.Content>
         
         <Tabs.Content value="notable-software">
-
+            a
         </Tabs.Content>
 
         <Tabs.Content value="variables">
-
+            b
         </Tabs.Content>
         
         <Tabs.Content value="browsers">
-
+            c
         </Tabs.Content>
         
         <Tabs.Content value="startup-tasks">
-
+            d
         </Tabs.Content>
         
         <Tabs.Content value="windows-updates">
-
+            e
         </Tabs.Content>
 
     </Tabs> 
