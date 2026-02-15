@@ -9,12 +9,12 @@
 <div class="tabbed-info">
     <Tabs defaultValue="notes">
         <Tabs.List>
-            <Tabs.Trigger value="notes"></Tabs.Trigger>
-            <Tabs.Trigger value="notable-software"></Tabs.Trigger>
-            <Tabs.Trigger value="variables"></Tabs.Trigger>
-            <Tabs.Trigger value="browsers"></Tabs.Trigger>
-            <Tabs.Trigger value="startup-tasks"></Tabs.Trigger>
-            <Tabs.Trigger value="windows-updates"></Tabs.Trigger>
+            <Tabs.Trigger value="notes">Notes</Tabs.Trigger>
+            <Tabs.Trigger value="notable-software">Notable Software</Tabs.Trigger>
+            <Tabs.Trigger value="variables">Variables</Tabs.Trigger>
+            <Tabs.Trigger value="browsers">Browsers</Tabs.Trigger>
+            <Tabs.Trigger value="startup-tasks">Startup Tasks</Tabs.Trigger>
+            <Tabs.Trigger value="windows-updates">Windows Updates</Tabs.Trigger>
             <Tabs.Indicator />
         </Tabs.List>
 
