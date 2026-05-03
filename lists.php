@@ -51,7 +51,7 @@
         "Speedify", // messes with network
         "UltraUXThemePatcher", // can mess up ui
         "Lockdown Browser", // has messed up windows power plans and other things https://discord.com/channels/749314018837135390/749316166878625843/1298020309881847849
-        "KMSpico" // Known windows activation tool likely malware
+        "KMSpico", // Known windows activation tool likely malware
         "optimizer",  // generic catch all for optimizer/tweaker tools - martin311
         "booster",     // generic catch all for optimizer/tweaker tools - martin311
         "TranslucentTB", // Theming tool, can cause UI issues - exstacy
