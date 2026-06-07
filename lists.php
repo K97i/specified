@@ -59,7 +59,7 @@
         "Rainmeter",    // Theming tool, can cause UI issues - martin311
         "TaskbarX",    // Theming tool, can cause UI issues - martin311
         "OpenShell",    // Theming tool, can cause UI issues - martin311
-        "AOMEI",       // Catch-all for the AOMEI software suite, can cause OS issues - exstacydemon
+        "AOMEI"       // Catch-all for the AOMEI software suite, can cause OS issues - exstacydemon
     ];
 
     $biosCharacteristics = [
