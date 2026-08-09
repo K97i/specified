@@ -7,7 +7,7 @@
 
 	interface Props {
 		cpu: Cpu;
-		cpuMoreInfo: Promise<Response>;
+		cpuMoreInfo: Response;
 	}
 
 	let {
