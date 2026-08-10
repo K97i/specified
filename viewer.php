@@ -1377,6 +1377,7 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
                                     </div>
                                 </div>
                             </div>
+                            <!-- Temperature widget disabled
                             <div class="widget widget-temps hover" type="button" data-mdb-toggle="modal" data-mdb-target="#temps-modal">
                                 <h1>Temps</h1>
                                 <div class="widget-values">
@@ -1408,6 +1409,7 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
                                     </div>
                                 </div>
                             </div>
+                            -->
                             <div class="widget widget-audio hover" type="button" data-mdb-toggle="modal" data-mdb-target="#audio-modal">
                                 <h1>Audio Devices</h1>
                                 <div class="widget-values">
