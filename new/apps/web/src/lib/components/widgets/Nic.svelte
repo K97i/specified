@@ -39,7 +39,7 @@
 
 <!-- NICs -->
 
-<Widget title="NIC">
+<Widget title="NIC" fullScreen>
 	{#snippet widgetContents()}
 		<div class="widget-value">
 			<span>{findPrimaryAdapter(nics)}</span>
@@ -47,8 +47,9 @@
 	{/snippet}
 
 	{#snippet modalContents()}
-		{#each nics as adapter}
-			<table class="table nic">
+		<div class="flex flex-row flex-wrap">
+			{#each nics as adapter}
+			<table class="table nic flex-1 min-w-[calc(50%-0.5rem)] max-w-[calc(50%-0.5rem)]">
 				<tbody>
 					<tr>
 						<td>#</td>
@@ -197,6 +198,8 @@
 				</tbody>
 			</table>
 		{/each}
+		</div>
+		
 	{/snippet}
 </Widget>
 

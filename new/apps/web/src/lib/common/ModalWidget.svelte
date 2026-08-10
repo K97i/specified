@@ -2,133 +2,94 @@
  A widget that expands into a modal view/pop up when clicked.
 -->
 <script lang="ts">
+	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+
+	interface Widget {
+		title: string,
+		widgetContents: any,
+		modalContents?: any,
+		extraModalContents?: any,
+		fullScreen?: any,
+	}
+
 	let {
 		title = 'Modal',
-		modalSpecial = '',
 		/** what's displayed when the widget is not expanded */
 		widgetContents,
 		/** what's displayed when the widget is in modal mode*/
 		modalContents,
 		/** "more info" contents*/
 		extraModalContents,
-	} = $props();
+		fullScreen
+	}: Widget = $props();
 
 	// TODO: support for "more info" is not currently
 	// implemented. When it is, it should not make use
 	// of IDs
-	let modalExpanded = $state(false);
 	let moreInfoExpanded = $state(false);
+
+	const widget = 'w-60 max-w-80 grow bg-surface-900 p-1 rounded-4',
+		  h1 = 'font-normal text-[13pt] m-0 pt-1 pb-2 text-center text-surface-50',
+		  contents = 'flex flex-col grow text-center text-[1rem]',
+		animation = 'transition transition-discrete translate-y-[100px] starting:data-[state=open]:opacity-0 starting:data-[state=open]:translate-y-[100px] data-[state=open]:opacity-100 data-[state=open]:translate-y-0';
 </script>
 
-{#if modalContents}
-	<button
-		onclick={() => {
-				modalExpanded = true;
-			}}
-		class="_widget">
-		<h1>{title}</h1>
-		<div class="widget-values">
-				{@render widgetContents()}
-		</div>
-	</button>
+{#if !modalContents}
+<div class="{widget}">
+	<h1 class="{h1}">{title}</h1>
+	<div class="{contents}">
+			{@render widgetContents()}
+	</div>
+</div>
 {:else}
-	<div class="_widget">
-		<h1>{title}</h1>
-		<div class="widget-values">
-				{@render widgetContents()}
+<Dialog>
+	<Dialog.Trigger class="transition-all duration-100 hover:brightness-75">
+		<div class="{widget}">
+			<h1 class="{h1}">{title}</h1>
+			<div class="{contents}">
+					{@render widgetContents()}
+			</div>
 		</div>
-	</div>
+	</Dialog.Trigger>
+	<Portal>
+		<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-50-950/50" />
+		<Dialog.Positioner class="fixed inset-0 z-100 flex justify-center items-center p-4">
+			<Dialog.Content class="card bg-surface-100-900 {fullScreen ? "w-full max-w-11/12 max-h-11/12" : "w-fit max-w-6xl max-h-4xl"} p-4 space-y-4 shadow-xl {animation}">
+				<header class="flex justify-between items-center">
+					<Dialog.Title class="text-lg font-bold">{title}</Dialog.Title>
+					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal">
+						X
+					</Dialog.CloseTrigger>
+				</header>
+
+				<div class="max-h-200 overflow-scroll">
+					{@render modalContents()}
+
+					<!-- more info -->	
+					{#if extraModalContents && moreInfoExpanded}
+						<div class="modal-body">
+							{@render extraModalContents()}
+						</div>
+					{/if}
+				</div>
+				
+				<footer class="flex justify-end gap-2">
+					{#if extraModalContents && moreInfoExpanded == false}
+						<button onclick={() => {moreInfoExpanded = true}} type="button" class="btn preset-filled">More Info</button>
+					{/if}
+					<Dialog.CloseTrigger class="btn preset-tonal">Close</Dialog.CloseTrigger>
+				</footer>
+			</Dialog.Content>
+		</Dialog.Positioner>
+	</Portal>
+</Dialog>
 {/if}
 
-{#if modalContents && modalExpanded}
-<span class="backdrop" onclick={() => {modalExpanded = false}} role="none">
-</span>
-<div class="_modal">
-	<!-- modal header -->
-	<div>
-		<h5>{title}</h5>
-		<button onclick={() => {modalExpanded = false;}} type="button" aria-label="Close"
-		></button>
-	</div>
 
-	<div class="modal-body">
-		{@render modalContents()}
-	</div>
-
-	<!-- more info -->	
-	{#if extraModalContents && moreInfoExpanded}
-		<div class="modal-body">
-			{@render extraModalContents()}
-		</div>
-	{/if}
-
-	<!-- footer -->
-	<div>
-		{#if extraModalContents && moreInfoExpanded == false}
-			<button
-				type="button"
-				class="btn btn-secondary"
-				onclick={() => {moreInfoExpanded = true}}>More Info</button
-			>
-		{/if}
-		<button
-			onclick={() => {modalExpanded = false;}}
-			type="button">Close</button
-		>
-	</div>
-	</div>
-{/if}
 <style>
-.widget-values {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-	text-align: center;
-	font-size: 16pt;
-}
 
 /*
 Underscore needed to stop bootstrap from interfering with css
 can be removed when bootstrap is
 */
-._widget {
-	cursor: pointer;
-	/* TODO: rem-ify */
-	width: 260px;
-	max-width: 340px;
-	flex-grow: 1;
-	padding: 2px 5px;
-
-	background-color: var(--color-surface-900);
-	border-radius: 6px;
-	color: var(--base-font-color-dark);
-}
-
-._widget h1 {
-	font-size: 13pt;
-	font-weight: 400;
-	margin: 0;
-	padding-top: 5px;
-	padding-bottom: 8px;
-	text-align: center;
-	color: var(--base-font-color-dark);
-}
-
-.backdrop {
-	z-index: 1054;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #00000099;
-}
-
-._modal {
-	/* pending removal of bootstrap */
-	max-width: 500px;
-	z-index: 1055;
-	background-color: var(--color-surface-900);
-	color: var(--base-font-color-dark);
-}
 </style>

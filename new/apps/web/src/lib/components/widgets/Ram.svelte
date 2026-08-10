@@ -28,7 +28,7 @@
 
 				{#if ramStick.Capacity > 0}
 					<div style="flex: 1 1 {flexBasis};">
-						<span>{Math.floor(ramStick.Capacity / 1000)} GB</span>
+						<span class="widget-cap">{Math.floor(ramStick.Capacity / 1000)} GB</span>
 						<div>DIMM {i+1}</div>
 					</div>
 				{:else}
@@ -111,7 +111,6 @@
 
 	div {
 		color: var(--color-surface-300);
-		font-size: 13pt;
 	}
 
 	.flex-container {
