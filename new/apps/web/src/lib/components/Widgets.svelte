@@ -29,19 +29,15 @@
 
 <div class="widgets">
 	<Cpu cpu={report.Hardware.Cpu} cpuMoreInfo={cpuMoreInfo}/>
-	<Os security={report.Security} basic={report.BasicInfo} />
 	<Ram ram={report.Hardware.Ram} pagefile={report.System.PageFile}/>
 	<Motherboard
 		tpm={report.Security.Tpm}
 		motherboard={report.Hardware.Motherboard}
 		bios={report.Hardware.BiosInfo}
 	/>
-	<Ram ram={report.Hardware.Ram} pagefile={report.System.PageFile}/>
 	<Gpu gpus={report.Hardware.Gpu} monitors={report.Hardware.Monitors} />
+	<Os security={report.Security} basic={report.BasicInfo} />
 	<Nic nics={report.Network.Adapters} />
-	<!--
-	<OS securityData={rawJSON.Security} basicinfoData={rawJSON.BasicInfo} />
--->
 </div>
 
 <div class="widgets">
@@ -49,6 +45,8 @@
 </div>
 
 <div class="widgets">
+	<CpuUsage cpuLoad={report.Hardware.Cpu.LoadPercentage}/>
+	<RamUsage runningProcesses={report.System.RunningProcesses} ram={report.Hardware.Ram}></RamUsage>
 	<PowerProfiles powerProfiles={report.System.PowerProfiles} batteries={report.Hardware.Batteries}/>
 	<Temps temps={report.Hardware.Temperatures}/>
 	<AudioDevices audioDevices={report.Hardware.AudioDevices}/>

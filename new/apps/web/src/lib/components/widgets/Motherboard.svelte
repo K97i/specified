@@ -176,7 +176,7 @@
 
 	.widget-values {
 		display: flex;
-		flex-flow: row wrap;
+		flex-flow: col wrap;
 		justify-content: space-evenly;
 	}
 </style>

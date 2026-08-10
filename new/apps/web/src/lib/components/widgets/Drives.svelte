@@ -108,24 +108,48 @@
 
             <div>
                 <h6>SMART</h6>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>Index</td>
-                            <td>Name</td>
-                            <td>Value</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {#each drive.data.SmartData as smartVal}
+                <div class="columns-1 md:columns-2 gap-6">
+                    <!-- Left Table -->
+                    <table class="table w-full">
+                        <thead>
                             <tr>
-                                <td>{smartVal.Id}</td>
-                                <td>{smartVal.Name}</td>
-                                <td>{smartVal.RawValue}</td>
+                                <td>Index</td>
+                                <td>Name</td>
+                                <td>Value</td>
                             </tr>
-                        {/each}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {#each drive.data.SmartData.slice(0, drive.data.SmartData.length / 2) as smartVal}
+                                <tr class="break-inside-avoid">
+                                    <td>{smartVal.Id}</td>
+                                    <td>{smartVal.Name}</td>
+                                    <td>{smartVal.RawValue}</td>
+                                </tr>
+                            {/each}
+                        </tbody>
+                    </table>
+
+                    <!-- Right Table -->
+                    <table class="table w-full">
+                        <thead>
+                            <tr>
+                                <td>Index</td>
+                                <td>Name</td>
+                                <td>Value</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {#each drive.data.SmartData.slice(drive.data.SmartData.length / 2) as smartVal}
+                                <tr class="break-inside-avoid">
+                                    <td>{smartVal.Id}</td>
+                                    <td>{smartVal.Name}</td>
+                                    <td>{smartVal.RawValue}</td>
+                                </tr>
+                            {/each}
+                        </tbody>
+                    </table>
+
+                </div>
             </div>
         {/snippet}
     </Widget>
