@@ -18,7 +18,7 @@
 
 	interface Props {
 		report: Report;
-		cpuMoreInfo: Promise<Response>;
+		cpuMoreInfo: Response;
 	}
 
 	let {
