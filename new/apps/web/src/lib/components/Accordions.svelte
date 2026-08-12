@@ -3,7 +3,11 @@
 	import TabledData from '$lib/common/TabledData.svelte';
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 
-    let errorTables: Boolean = $state(false);
+    const errorTables: boolean = 
+            report.Events.UnexpectedShutdowns.length > 0 ||
+            report.Events.MachineCheckExceptions.length > 0 ||
+            report.Events.WheaErrorRecords.length > 0 ||
+            report.Events.PciWheaErrors.length > 0;
 
     interface Props {
 		report: Report;
@@ -12,14 +16,6 @@
 	let {
 		report,
 	}: Props = $props();
-
-    if (
-        report.Events.UnexpectedShutdowns.length > 0 ||
-        report.Events.MachineCheckExceptions.length > 0 ||
-        report.Events.WheaErrorRecords.length > 0 ||
-        report.Events.PciWheaErrors.length > 0
-        )
-        errorTables = true;
 </script>
 
 <!-- Devices, Drivers -->
