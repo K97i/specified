@@ -1226,7 +1226,7 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
                                             ' . $fs_display . '<br/>
                                             ' . "$part_taken / $part_size MB Used" . '
                                         </span>
-                                        <div class="progress-bar partition-space-bar" style="width: ' . $part_taken / $part_size * 100 . '%;"></div>
+                                        <div class="progress-bar partition-space-bar" style="width: ' . ($part_size > 0 ? $part_taken / $part_size * 100 : 0) . '%;"></div>
                                     </div>
                                     ';
                                 }
