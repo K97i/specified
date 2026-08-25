@@ -106,6 +106,7 @@
                 </table>
             </div>
 
+            {#if drive.data.SmartData != null}
             <div>
                 <h6>SMART</h6>
                 <div class="columns-1 md:columns-2 gap-6">
@@ -151,6 +152,7 @@
 
                 </div>
             </div>
+            {/if}
         {/snippet}
     </Widget>
 {/each}
