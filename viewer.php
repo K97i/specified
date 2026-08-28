@@ -666,6 +666,7 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
                                         </div>
                                         <div class="modal-body">
                                             <?php
+                                            /*
                                             if (isset($json_data['Hardware']['Gpu'])) {
                                                 $html = '<h5> GPU Info </h5>
                                                             <table class="table">
@@ -699,10 +700,10 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
 
                                                 $html = '';
                                             }
+                                            */
 
                                             if (isset($json_data['Hardware']['Monitors'])) {
-                                                $html = '<h5> Monitor Info </h5>
-                                                            <table class="table">
+                                                $html = '<table class="table">
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Name</th>

@@ -724,6 +724,7 @@
     </tbody>
 </table>
 
+<!--
 <h2>GPUs</h2>
 <table class="table">
     <thead>
@@ -736,6 +737,7 @@
     </thead>
     <tbody>
         <?php
+        /*/
             foreach ($json_data['Hardware']['Gpu'] as $gpu) {
                 echo '
         <tr>
@@ -744,10 +746,11 @@
             <td>' . $gpu['CurrentHorizontalResolution'] . ' x ' . $gpu['CurrentVerticalResolution'] . '</td>
             <td>' . $gpu['CurrentRefreshRate'] . 'Hz' . '</td>
         </tr>';
-            }
+            }*/
         ?>
     </tbody>
 </table>
+-->
 
 <h2>Displays</h2>
 <table class="table">
