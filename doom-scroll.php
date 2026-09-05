@@ -724,33 +724,28 @@
     </tbody>
 </table>
 
-<!--
 <h2>GPUs</h2>
 <table class="table">
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">VRAM</th>
             <th scope="col">Resolution</th>
             <th scope="col">Refresh Rate</th>
         </tr>
     </thead>
     <tbody>
         <?php
-        /*/
             foreach ($json_data['Hardware']['Gpu'] as $gpu) {
                 echo '
         <tr>
             <td>' . $gpu['Description'] . '</td>
-            <td>' . $gpu['AdapterRAM'] / pow(2, 20) . ' MB' . '</td>
             <td>' . $gpu['CurrentHorizontalResolution'] . ' x ' . $gpu['CurrentVerticalResolution'] . '</td>
             <td>' . $gpu['CurrentRefreshRate'] . 'Hz' . '</td>
         </tr>';
-            }*/
+            }
         ?>
     </tbody>
 </table>
--->
 
 <h2>Displays</h2>
 <table class="table">

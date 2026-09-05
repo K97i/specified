@@ -666,14 +666,12 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
                                         </div>
                                         <div class="modal-body">
                                             <?php
-                                            /*
                                             if (isset($json_data['Hardware']['Gpu'])) {
                                                 $html = '<h5> GPU Info </h5>
                                                             <table class="table">
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Name</th>
-                                                                        <th scope="col">VRAM</th>
                                                                         <th scope="col">Resolution</th>
                                                                         <th scope="col">Refresh Rate</th>
                                                                     </tr>
@@ -681,13 +679,11 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
                                                                 <tbody>';
 
                                                 foreach ($json_data['Hardware']['Gpu'] as $gpu) {
-                                                    $vram = $gpu['AdapterRAM'] / 1048576 . ' MB';
                                                     $res = $gpu['CurrentHorizontalResolution'] . ' x ' . $gpu['CurrentVerticalResolution'];
                                                     $refrate = $gpu['CurrentRefreshRate'] . 'Hz';
 
                                                     $html .= '<tr>
                                                                     <td>' . $gpu['Description'] . '</td>
-                                                                    <td>' . $vram . '</td>
                                                                     <td>' . $res . '</td>
                                                                     <td>' . $refrate . '</td>
                                                                 </tr>';
@@ -700,10 +696,10 @@ $pupsfoundRunning = array_filter($referenceListRunning, function($checkobj) use 
 
                                                 $html = '';
                                             }
-                                            */
 
                                             if (isset($json_data['Hardware']['Monitors'])) {
-                                                $html = '<table class="table">
+                                                $html = '<h5> Monitor Info </h5>
+                                                            <table class="table">
                                                                 <thead>
                                                                     <tr>
                                                                         <th scope="col">Name</th>
