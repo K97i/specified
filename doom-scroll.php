@@ -729,7 +729,6 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">VRAM</th>
             <th scope="col">Resolution</th>
             <th scope="col">Refresh Rate</th>
         </tr>
@@ -740,7 +739,6 @@
                 echo '
         <tr>
             <td>' . $gpu['Description'] . '</td>
-            <td>' . $gpu['AdapterRAM'] / pow(2, 20) . ' MB' . '</td>
             <td>' . $gpu['CurrentHorizontalResolution'] . ' x ' . $gpu['CurrentVerticalResolution'] . '</td>
             <td>' . $gpu['CurrentRefreshRate'] . 'Hz' . '</td>
         </tr>';
